@@ -23,17 +23,20 @@ const app = express();
 //List of allowed frontend URLs
 const allowedOrigins = [
   'https://university-idea-management-system-cazh.onrender.com',
-  '*'
+  'http://localhost:3000',
+  'http://localhost:5173'
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'), false);
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       }
+
+      return callback(new Error('Not allowed by CORS'), false);
     },
     credentials: true,
   })
