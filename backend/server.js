@@ -21,25 +21,25 @@ connectDB();
 const app = express();
 
 //List of allowed frontend URLs
-// const allowedOrigins = [
-//   'http://localhost:5173',
-//   '*'
-// ];
+const allowedOrigins = [
+  'https://university-idea-management-system-cazh.onrender.com',
+  '*'
+];
 
-// app.use(
-//   cors({
-//     origin: (origin, callback) => {
-//       if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error('Not allowed by CORS'), false);
-//       }
-//     },
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'), false);
+      }
+    },
+    credentials: true,
+  })
+);
 
-app.use(cors()); 
+// app.use(cors()); 
 
 // Middleware
 app.use(cookieParser());
