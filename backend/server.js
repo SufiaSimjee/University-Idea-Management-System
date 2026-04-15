@@ -21,23 +21,9 @@ connectDB();
 const app = express();
 
 //List of allowed frontend URLs
-const allowedOrigins = [
-  'https://university-idea-management-system-cazh.onrender.com',
-  'http://localhost:3000',
-  'http://localhost:5173'
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error('Not allowed by CORS'), false);
-    },
+    origin: "https://university-idea-management-system-cazh.onrender.com",
     credentials: true,
   })
 );
