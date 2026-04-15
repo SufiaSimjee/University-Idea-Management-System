@@ -39,10 +39,8 @@
     "nodemailer": "^6.10.0",
     "secure-random": "^1.1.2",
     "ua-parser-js": "^2.0.3",
-    "useragent": "^2.3.0"
-  },
-  "devDependencies": {
-    "concurrently": "^9.1.2",
+    "useragent": "^2.3.0",
+      "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "nodemon": "^3.1.9"
   }
